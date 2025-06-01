@@ -1,3 +1,6 @@
+using apbd11_cw5.DAL;
+using Microsoft.EntityFrameworkCore;
+
 namespace apbd11_cw5;
 
 public class Program
@@ -6,9 +9,14 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        string? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         // Add services to the container.
         builder.Services.AddAuthorization();
         builder.Services.AddControllers();
+        builder.Services.AddDbContext<FarmacyDBContext>(opt =>
+        {
+            opt.UseSqlServer(connectionString);
+        });
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
