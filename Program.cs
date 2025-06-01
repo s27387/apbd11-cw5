@@ -1,4 +1,6 @@
 using apbd11_cw5.DAL;
+using apbd11_cw5.Repositories;
+using apbd11_cw5.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace apbd11_cw5;
@@ -17,6 +19,11 @@ public class Program
         {
             opt.UseSqlServer(connectionString);
         });
+        
+        builder.Services.AddScoped<IPatientsRepository, PatientsRepository>();
+        builder.Services.AddScoped<IPatientsService, PatientsService>();
+        builder.Services.AddScoped<IPrescriptionsRepository, PrescriptionsRepository>();
+        builder.Services.AddScoped<IPrescriptionsService, PrescriptionsService>();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 

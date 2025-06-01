@@ -1,6 +1,8 @@
-﻿namespace apbd11_cw5.Repositories;
+﻿using apbd11_cw5.Models;
 
-public interface IPatienRepository
+namespace apbd11_cw5.Repositories;
+
+public interface IPatientsRepository
 {
-    Task<Patient> GetPatient(int id);
+    Task<Patient?> GetPatientWithDetailsAsync(int idPatient);
 }

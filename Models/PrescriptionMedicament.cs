@@ -20,7 +20,7 @@ public class PrescriptionMedicament
     public Prescription Prescription { get; set; }
     
     
-    public int Dose { get; set; }
+    public int? Dose { get; set; }
     [MaxLength(100)]
     public string Details { get; set; }
 

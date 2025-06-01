@@ -3,7 +3,7 @@ using apbd11_cw5.Models;
 
 namespace apbd11_cw5.Services;
 
-public interface IPatiensService
+public interface IPatientsService
 {
-    Task<PatientDto> GetPatient(Patient patient);
+    Task<PatientDto> GetPatientAsync(int IdPatient);
 }
